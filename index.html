@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#251b1c">
+  <meta name="description" content="SEA-MCM, gestão de campeonatos dos Jogos Escolares">
+  <title>SEA-MCM | Jogos Escolares</title>
+  <link rel="icon" type="image/jpeg" href="assets/escudo-sea-mcm.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="splash" class="splash" aria-label="Carregando SEA-MCM">
+    <div class="splash-inner">
+      <img class="splash-image" src="assets/escudo-sea-mcm.jpeg" alt="Escudo SEA-MCM">
+      <div class="splash-title">SEA-MCM</div>
+      <p>Sociedade Esportiva e Acadêmica<br>Professora Maria Cristina Medeiros</p>
+      <div class="splash-track"><span></span></div>
+      <small>JOGOS ESCOLARES · 2026</small>
+    </div>
+  </div>
+
+  <div id="auth" class="auth-screen is-hidden">
+    <header class="auth-topbar">
+      <div class="small-brand"><img src="assets/escudo-sea-mcm.jpeg" alt=""><div><strong>SEA-MCM</strong><small>Jogos Escolares</small></div></div>
+      <div class="auth-top-meta">ETEC Maria Cristina Medeiros · 2026</div>
+    </header>
+    <main class="auth-main">
+      <div class="auth-glow" aria-hidden="true"></div>
+      <div class="auth-layout">
+        <div class="auth-intro">
+          <span class="eyebrow">COMPETIÇÃO · COMUNIDADE · ESPORTE</span>
+          <h1>Um só lugar.<br><em>Todos os jogos.</em></h1>
+          <p>Resultados, classificações e campeonatos da SEA-MCM. Entre para acompanhar ou administrar os jogos.</p>
+          <div class="auth-intro-foot"><span class="tiny-dot"></span> Visualização local de demonstração</div>
+        </div>
+        <section class="login-card" aria-labelledby="login-heading">
+          <div class="login-logo"><img src="assets/escudo-sea-mcm.jpeg" alt="Escudo SEA-MCM"></div>
+          <div id="auth-step-start">
+            <h2 id="login-heading">Entre ou cadastre-se</h2>
+            <p class="form-intro">Acompanhe os jogos ou acesse as ferramentas da organização.</p>
+            <button type="button" class="social-button" id="google-btn"><span class="google-symbol">G</span> Continuar com o Google <span class="arrow">↗</span></button>
+            <div class="divider"><span>OU</span></div>
+            <form id="email-step-form" autocomplete="on">
+              <label class="sr-only" for="email-input">Endereço de e-mail</label>
+              <input id="email-input" name="email" type="email" placeholder="Endereço de e-mail" autocomplete="email" required>
+              <button class="btn-light full" type="submit">Continuar <span>→</span></button>
+            </form>
+            <button type="button" class="guest-btn" id="guest-btn">Continuar como visitante <span>↗</span></button>
+          </div>
+          <div id="auth-step-password" class="is-hidden">
+            <button type="button" class="back-link" data-auth-back>← Voltar</button>
+            <h2 id="password-title">Bem-vindo de volta</h2>
+            <p class="form-intro" id="password-email"></p>
+            <form id="password-form">
+              <label for="password-input">Senha</label>
+              <input id="password-input" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required>
+              <button class="btn-light full" type="submit">Entrar <span>→</span></button>
+            </form>
+            <p class="demo-hint" id="admin-demo-hint">Versão de demonstração: use a senha <strong>@23032026</strong>. Não é a senha real do Google.</p>
+          </div>
+          <div id="auth-step-register" class="is-hidden">
+            <button type="button" class="back-link" data-auth-back>← Voltar</button>
+            <h2>Crie sua conta</h2>
+            <p class="form-intro">Sua conta local terá acesso apenas à área pública.</p>
+            <form id="register-form">
+              <label for="register-name">Seu nome</label><input id="register-name" required maxlength="60" autocomplete="name" placeholder="Como podemos chamar você?">
+              <label for="register-password">Senha de teste</label><input id="register-password" type="password" required minlength="8" autocomplete="new-password" placeholder="No mínimo 8 caracteres">
+              <label for="register-confirm">Confirmar senha</label><input id="register-confirm" type="password" required minlength="8" autocomplete="new-password" placeholder="Repita a senha">
+              <button class="btn-light full" type="submit">Criar conta <span>→</span></button>
+            </form>
+            <p class="demo-hint">Teste local: não utilize senhas pessoais ou importantes.</p>
+          </div>
+          <div id="auth-error" class="auth-error is-hidden" role="status" aria-live="polite"></div>
+          <div class="auth-card-footer"><span class="tiny-dot"></span> SEA-MCM · Uma comunidade em movimento</div>
+        </section>
+      </div>
+    </main>
+    <footer class="auth-bottom">© 2026 SEA-MCM <span>Identidade visual inspirada no escudo oficial · Protótipo local</span></footer>
+  </div>
+
+  <div id="app" class="app-shell is-hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand"><img src="assets/escudo-sea-mcm.jpeg" alt="Escudo SEA-MCM"><div><b>SEA-MCM</b><small>Jogos Escolares</small></div></div>
+      <div class="nav-caption" id="side-mode">ÁREA PÚBLICA</div>
+      <nav class="nav-list" aria-label="Menu principal">
+        <button type="button" class="nav-item active" data-page="inicio"><span>◫</span> <span id="home-nav-label">Início</span></button>
+        <button type="button" class="nav-item" data-page="campeonatos"><span>♜</span> Campeonatos</button>
+        <button type="button" class="nav-item" data-page="classificacao"><span>▤</span> Classificação</button>
+        <button type="button" class="nav-item admin-only" data-page="configuracoes"><span>⚙</span> Gestão e backup</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="edition">TEMPORADA 2026 <span class="gold-dot"></span></div>
+        <div class="sidebar-user"><small>ACESSO ATUAL</small><strong id="user-label">Visitante</strong><span id="role-label">Público geral</span></div>
+        <button type="button" class="outline-dark" id="logout-btn">Sair / trocar conta <span>→</span></button>
+        <p>Sociedade Esportiva e Acadêmica<br>ETEC Maria Cristina Medeiros</p>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div><div class="overline" id="top-context">PORTAL DE JOGOS</div><h1 id="page-title">Início</h1></div>
+        <div class="top-actions"><span id="mode-badge" class="mode-badge">Área pública</span><button id="switch-mode" class="ghost-button is-hidden" type="button">Ver área pública</button><button id="logout-mobile" class="ghost-button mobile-logout" type="button">Sair</button></div>
+      </header>
+      <div id="alert" role="status" aria-live="polite"></div>
+      <main class="main-content">
+        <section id="page-inicio" class="page">
+          <div class="hero"><div class="hero-copy"><span class="eyebrow">TEMPORADA 2026</span><h2 id="hero-title">O jogo começa aqui.</h2><p id="hero-desc">Acompanhe as competições da SEA-MCM e fique por dentro dos resultados.</p><button class="gold-button" id="hero-action" type="button">Explorar campeonatos <span>↗</span></button></div><img class="hero-crest" src="assets/escudo-sea-mcm.jpeg" alt="Escudo SEA-MCM"></div>
+          <div class="stat-grid"><article><small>CAMPEONATOS</small><strong id="stat-champs">0</strong><span>cadastrados</span></article><article><small>EQUIPES</small><strong id="stat-teams">0</strong><span>participantes</span></article><article><small>PARTIDAS</small><strong id="stat-matches">0</strong><span>resultados publicados</span></article></div>
+          <div class="section-heading"><div><span class="overline">ACOMPANHE</span><h3>Campeonatos recentes</h3></div><button class="text-action" data-go="campeonatos">Ver todos →</button></div>
+          <div id="home-list" class="champ-grid"></div>
+        </section>
+        <section id="page-campeonatos" class="page is-hidden">
+          <div class="section-heading stacked-sm"><div><span class="overline">TEMPORADA 2026</span><h3>Campeonatos</h3><p id="champs-subtitle">Acompanhe as competições e seus resultados.</p></div><button id="new-champ-btn" class="gold-button admin-only" type="button">+ Novo campeonato</button></div>
+          <div class="filterbar"><label class="sr-only" for="search-champ">Pesquisar campeonatos</label><input id="search-champ" type="search" placeholder="Buscar por nome ou modalidade..."><label class="sr-only" for="filter-status">Filtrar status</label><select id="filter-status"><option value="">Todos os status</option><option>Planejado</option><option>Em andamento</option><option>Concluído</option></select></div>
+          <div id="champ-list" class="champ-grid"></div>
+        </section>
+        <section id="page-classificacao" class="page is-hidden">
+          <div class="section-heading stacked-sm"><div><span class="overline">RESULTADOS E DESEMPENHO</span><h3>Classificação</h3><p>Confira os pontos e posições dos participantes.</p></div><label class="select-label">Campeonato<select id="classification-select"></select></label></div>
+          <div class="table-panel"><div class="table-scroller"><table><thead><tr><th>POS.</th><th>EQUIPE</th><th>P</th><th>J</th><th>V</th><th>E</th><th>D</th><th>SG</th></tr></thead><tbody id="classification-body"></tbody></table></div><p class="table-footnote">P: pontos · J: jogos · V: vitórias · E: empates · D: derrotas · SG: saldo</p></div>
+        </section>
+        <section id="page-configuracoes" class="page is-hidden admin-only">
+          <div class="section-heading"><div><span class="overline">ADMINISTRAÇÃO LOCAL</span><h3>Gestão e backup</h3><p>Ferramentas de demonstração. Dados guardados apenas neste navegador.</p></div></div>
+          <div class="config-grid"><article class="config-card"><h4>Backup de campeonatos</h4><p>Exporte seus dados ou importe um backup para continuar seus testes.</p><div class="button-row"><button id="export-data" class="gold-button">Exportar JSON</button><label class="outline-button">Importar JSON <input id="import-data" type="file" accept=".json,application/json" hidden></label></div></article><article class="config-card"><h4>Preencher dados de exemplo</h4><p>Adiciona um campeonato fictício para testar placares e classificação na área pública.</p><button id="seed-sample" class="outline-button" type="button">Criar campeonato de exemplo</button></article></div>
+          <div class="security-note"><strong>Importante</strong><p>Este projeto é uma demonstração local. O login de teste e a separação visual de perfis não protegem dados de verdade. Para publicar com segurança, configure um provedor de autenticação e permissões no banco de dados.</p></div>
+        </section>
+      </main>
+      <footer class="app-footer">SEA-MCM · Jogos Escolares 2026 <span>Protótipo local · dados não sincronizados</span></footer>
+    </div>
+  </div>
+
+  <dialog id="champ-dialog" class="app-dialog"><form id="champ-form"><div class="dialog-title"><span class="overline">ÁREA ADMINISTRATIVA</span><h2 id="champ-dialog-title">Novo campeonato</h2></div><input type="hidden" name="id"><label>Nome do campeonato<input name="nome" maxlength="90" placeholder="Ex.: Interclasses 2026" required></label><label>Modalidade<select name="modalidade" required><option>Futsal</option><option>Vôlei</option><option>Basquete</option><option>Handebol</option><option>Xadrez</option><option>FIFA</option><option>UNO</option><option>Outro</option></select></label><label>Data de início<input name="data" type="date" required></label><label>Status<select name="status"><option>Planejado</option><option>Em andamento</option><option>Concluído</option></select></label><div class="dialog-actions"><button type="button" class="outline-button" data-close="champ-dialog">Cancelar</button><button class="gold-button" type="submit">Salvar campeonato</button></div></form></dialog>
+  <dialog id="detail-dialog" class="app-dialog detail-dialog"><div class="dialog-heading"><div><span class="overline">CAMPEONATO</span><h2 id="detail-title">Detalhes</h2><p id="detail-meta"></p></div><button class="icon-button" aria-label="Fechar" data-close="detail-dialog" type="button">✕</button></div><div class="detail-layout"><section><h3>Equipes participantes</h3><form id="team-form" class="mini-form admin-only"><label class="sr-only" for="team-name">Nome da equipe</label><input id="team-name" name="nome" required maxlength="70" placeholder="Nova equipe"><button type="submit" class="gold-button">Adicionar</button></form><div id="team-list" class="mini-list"></div></section><section><h3>Resultados</h3><form id="match-form" class="match-form admin-only"><label>Equipe A<select name="teamA" required></select></label><label>Placar A<input type="number" name="scoreA" min="0" max="999" required></label><label>Equipe B<select name="teamB" required></select></label><label>Placar B<input type="number" name="scoreB" min="0" max="999" required></label><button type="submit" class="gold-button">Registrar partida</button></form><div id="match-list" class="mini-list"></div></section></div><div class="dialog-actions"><button class="outline-button" data-close="detail-dialog" type="button">Fechar</button></div></dialog>
+  <dialog id="info-dialog" class="app-dialog info-dialog"><h2 id="info-title">Informação</h2><p id="info-body"></p><div class="dialog-actions"><button class="gold-button" type="button" data-close="info-dialog">Entendi</button></div></dialog>
+</body>
+</html>

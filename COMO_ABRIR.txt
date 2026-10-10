@@ -1,0 +1,13 @@
+SEA-MCM — ABRIR LOCALMENTE
+
+1. Extraia este ZIP.
+2. Entre na pasta SEA-MCM.
+3. Execute ABRIR_SITE.bat.
+4. Aguarde o splash e escolha o acesso.
+
+Público: clique em “Continuar como visitante”.
+Administrador (somente demonstração local):
+E-mail: seamcm2a@gmail.com
+Senha DE TESTE: SEA2026!
+
+Para login Google real, leia CONFIGURAR_GOOGLE.md.
